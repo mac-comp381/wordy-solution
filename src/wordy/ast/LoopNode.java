@@ -1,5 +1,6 @@
 package wordy.ast;
 
+import java.io.PrintWriter;
 import java.util.Map;
 import java.util.Objects;
 
@@ -32,6 +33,12 @@ public class LoopNode extends StatementNode {
         } catch(LoopExited e) {
             // We have now broken from the loop; continue normal execution
         }
+    }
+
+    @Override
+    public void compile(PrintWriter out) {
+        out.println("while(true)");
+        body.compile(out);
     }
 
     @Override

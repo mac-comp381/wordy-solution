@@ -1,6 +1,5 @@
 package wordy.compiler;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.PrintWriter;
@@ -15,7 +14,6 @@ import static wordy.parser.WordyParser.parseExpression;
 import static wordy.parser.WordyParser.parseProgram;
 import static wordy.parser.WordyParser.parseStatement;
 
-@Disabled
 public class CompilerTest {
     @Test
     void compileConstant() {
