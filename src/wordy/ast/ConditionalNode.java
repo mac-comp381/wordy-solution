@@ -1,5 +1,6 @@
 package wordy.ast;
 
+import java.io.PrintWriter;
 import java.util.Map;
 import java.util.Objects;
 
@@ -56,6 +57,25 @@ public class ConditionalNode extends StatementNode {
             case LESS_THAN    -> leftValue < rightValue;
             case GREATER_THAN -> leftValue > rightValue;
         };
+    }
+
+    @Override
+    public void compile(PrintWriter out) {
+        out.print("if(");
+        lhs.compile(out);
+        out.print(
+            switch(operator) {
+                case EQUALS       -> "==";
+                case LESS_THAN    -> "<";
+                case GREATER_THAN -> ">";
+                default -> throw new UnsupportedOperationException("Unknown operator: " + operator);
+            }
+        );
+        rhs.compile(out);
+        out.println(")");
+        ifTrue.compile(out);
+        out.println("else");
+        ifFalse.compile(out);
     }
 
     @Override
