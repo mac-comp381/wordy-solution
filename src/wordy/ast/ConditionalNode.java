@@ -68,7 +68,6 @@ public class ConditionalNode extends StatementNode {
                 case EQUALS       -> "==";
                 case LESS_THAN    -> "<";
                 case GREATER_THAN -> ">";
-                default -> throw new UnsupportedOperationException("Unknown operator: " + operator);
             }
         );
         rhs.compile(out);
