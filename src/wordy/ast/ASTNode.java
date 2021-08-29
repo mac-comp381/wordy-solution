@@ -20,9 +20,7 @@ public abstract class ASTNode {
     /**
      * Translates this node and its descendants into Java code.
      */
-    public void compile(PrintWriter out) {
-        throw new UnsupportedOperationException("Compilation not implemented yet for " + getClass().getSimpleName());
-    }
+    public abstract void compile(PrintWriter out);
 
     /**
      * Returns the set of all unique (by name) VariableNodes in this node's subtree. The results

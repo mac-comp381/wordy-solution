@@ -31,7 +31,5 @@ public abstract class StatementNode extends ASTNode {
     /**
      * Subclasses should implement this to support interpreted execution.
      */
-    protected void doRun(EvaluationContext context) {
-        throw new UnsupportedOperationException("Interpreter not implemented yet for " + getClass().getSimpleName());
-    }
+    protected abstract void doRun(EvaluationContext context);
 }
