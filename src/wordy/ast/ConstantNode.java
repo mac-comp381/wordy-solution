@@ -3,6 +3,7 @@ package wordy.ast;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Objects;
+import wordy.interpreter.EvaluationContext;
 
 import wordy.interpreter.EvaluationContext;
 
@@ -19,6 +20,11 @@ public final class ConstantNode extends ExpressionNode {
     @Override
     public Map<String, ASTNode> getChildren() {
         return Collections.emptyMap();
+    }
+
+    @Override
+    public double doEvaluate(EvaluationContext context) {
+        return value;
     }
 
     @Override
